@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MJNavigationViewController.h
 //  juhaodai
 //
 //  Created by XiangY on 2018/1/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MJNavigationViewController : UINavigationController
 
++ (instancetype)navigationController;
 
 @end
-

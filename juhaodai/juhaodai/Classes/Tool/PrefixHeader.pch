@@ -1,0 +1,58 @@
+//
+//  Regulation+PrefixHeader.pch
+//  Regulation
+//
+//  Created by weijh on 17/5/19.
+//  Copyright © 2017年 gateon. All rights reserved.
+//
+
+#ifndef Regulation_PrefixHeader_pch
+#define Regulation_PrefixHeader_pch
+
+//获取屏幕的宽高
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//导航栏高度
+#define SafeAreaTopHeight (SCREEN_HEIGHT == 812.0 ? 88 : 64)
+
+//tabbar距离底部的高度
+#define SafeAreaBottomHeight (SCREEN_HEIGHT == 812.0 ? 34 : 0)
+
+// 当前版本号
+#define CURRENT_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+// 偏好设置
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
+
+//设置随机颜色
+#define MJRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+//设置RGB颜色/设置RGBA颜色
+#define MJRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define MJRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(r)/255.0 blue:(r)/255.0 alpha:a]
+
+
+//自定义高效率的NSLog
+#ifdef DEBUG
+#define MJLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define MJLog(...)
+
+#endif
+
+//设置view圆角和边框
+#define MJViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+//端口地址
+#define MAINHTTP @"http://192.168.11.159"
+
+//自定义类别
+#import "UIView+Extension.h"
+
+#endif /* Regulation_PrefixHeader_pch */
